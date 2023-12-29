@@ -40,3 +40,6 @@ COMPONENT UML
 
 ![image](https://github.com/TimWebberAU/Timer2.0/assets/93519534/b2419759-bbf7-4eeb-8d54-6dc1bd1c0efb)
 
+
+NOTES
+- Reconsider the relationships in the UML - if the GUI "has" a background, then doesn't that mean the GUI is "composed of" a background object?
