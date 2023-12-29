@@ -35,3 +35,8 @@ VOLATILITIES:
 - Clients host machine: Will this app be used on multiple operating systems?
 - The GUI method used
 - The way the timer is displayed
+
+COMPONENT UML
+
+![image](https://github.com/TimWebberAU/Timer2.0/assets/93519534/b2419759-bbf7-4eeb-8d54-6dc1bd1c0efb)
+
