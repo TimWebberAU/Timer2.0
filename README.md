@@ -11,7 +11,7 @@ OBJECTIVES:
 - Core use cases
 - Requirements
 - Volatility-based decomposition
-- Component validation
+- Component UML
 - Build
 
 
@@ -33,3 +33,5 @@ VOLATILITIES:
 - The background: An ability to change the background might be nice
 - User input: Will need to be controlled and exceptions allowed for
 - Clients host machine: Will this app be used on multiple operating systems?
+- The GUI method used
+- The way the timer is displayed
