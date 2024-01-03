@@ -17,6 +17,7 @@ class TimerDisplayInterface(ABC):
     pass
 
 
+@dataclass
 class TimerDisplay(TimerDisplayInterface):
     """Method of displaying a timer."""
 
