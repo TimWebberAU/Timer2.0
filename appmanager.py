@@ -10,6 +10,7 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from time import sleep
 from input import UserInput, UserInputInterface
 from timer import TimerDisplay, TimerDisplayInterface
 
@@ -27,13 +28,18 @@ class TimerLayout(Widget):
         # self.__user_input_object = UserInputInterface()
         # self.__timer_display_object = TimerDisplayInterface()
     
-
-    # CONFIGURE THE FOLLOWING METHOD PROPERLY
-    def on_slider_value_change(self, instance, value):
-        self.label.text = f"Slider Value: {int(value)}"
     
     def begin_btn(self):
-        print(f"Hours: {self.hours.text}, Minutes: {self.minutes.text}, Seconds: {self.seconds.text}")
+        print(f"Hours: {int(self.hours.value)}, Minutes: {int(self.minutes.value)}, Seconds: {int(self.seconds.value)}")
+
+    # KIVY DOESNT LIKE SLEEP FUNCTION - REPLACE WITH KIVY.CLOCK INSTEAD ********
+    def timer_display(self):
+        timer_seconds = int(self.seconds.value)
+
+        for i in range(timer_seconds, 0, -1):
+            print(i)
+            self.ids.timer.text = str(i)
+            sleep(1)
 
 
 class TimerApp(App):
