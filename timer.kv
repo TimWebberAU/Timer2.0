@@ -57,14 +57,14 @@
                 on_value: slider_seconds_label.text = f"{int(self.value)} Seconds"
 
         Button:
-            text: "Begin"
+            text: "Begin / Reset"
             size_hint: root.width, 0.3
             font_size: 20
             on_press: root.begin_btn()
         
         Label:
             id: timer
-            text: ""
+            text: "Hr: 0  Min: 0  Sec: 0"
             size_hint: root.width, 0.3
             font_size: 30
             

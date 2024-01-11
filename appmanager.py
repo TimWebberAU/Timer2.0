@@ -11,23 +11,23 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.clock import Clock
-from input import UserInput, UserInputInterface
 from timer import TimerDisplay, TimerDisplayInterface
 
 
 class TimerLayout(Widget):
     """Management of the app and layout."""
 
+    # Used only to pass-in engine class objects during instantiation.
+    def __init__(self, timer_display_object, **kwargs):
+        super(TimerLayout, self).__init__(**kwargs)
+
+        self.timer_display_object = timer_display_object
+
+
+    # Variables that interact with the .kv style sheet
     hours = ObjectProperty(None)
     minutes = ObjectProperty(None)
     seconds = ObjectProperty(None)
-
-
-        # The following isn't correct - Instantiation should occur one step back
-        # and the objects are passed in but reference the interfaces - Liskov
-        # I'm also instantiating the abstract classes here - the interfaces
-        # self.__user_input_object = UserInputInterface()
-        # self.__timer_display_object = TimerDisplayInterface()
     
 
     def begin_btn(self):
@@ -75,7 +75,11 @@ class TimerApp(App):
     """Main entry point of Kivy App."""
 
     def build(self):
-        return TimerLayout()
+
+        # Instantiate engine objects
+        # self.timer_display_object = TimerDisplay()
+
+        return TimerLayout(TimerDisplay())  # Pass-in engine class as well
 
 
 if __name__ == '__main__':
