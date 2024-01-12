@@ -8,26 +8,34 @@
         cols: 1
         size: root.width, root.height
         spacing: 20
+        # background_color: rgba("#1F1B24")
 
         Label:
-            text: "ENTER A TIME"
+            text: "NEEDY  TIMER"
             size_hint: root.width, 0.3
+            font_name: 'Fonts/Shrikhand-Regular.ttf'
+            font_size: 20
+            color: rgba("#BB86FC")
 
         GridLayout:
             cols: 3
+            
 
             Label:
                 id: slider_hours_label
                 text: "0 Hours"
                 size_hint: root.width, 0.1
+                font_name: 'Verdana'
             Label:
                 id: slider_minutes_label
                 text: "0 Minutes"
                 size_hint: root.width, 0.1
+                font_name: 'Verdana'
             Label:
                 id: slider_seconds_label
                 text: "0 Seconds"
                 size_hint: root.width, 0.1
+                font_name: 'Verdana'
 
             Slider:
                 id: hours
@@ -59,14 +67,19 @@
         Button:
             text: "Begin / Reset"
             size_hint: root.width, 0.3
+            font_name: 'Fonts/Shrikhand-Regular.ttf'
             font_size: 20
             on_press: root.begin_btn()
         
         Label:
             id: timer
-            text: "Hr: 0  Min: 0  Sec: 0"
+            # text: "Hr: 0  Min: 0  Sec: 0"
+            text: "0 : 0 : 0"
             size_hint: root.width, 0.3
-            font_size: 30
+            font_name: 'Fonts/Shrikhand-Regular.ttf'
+            font_size: 20
+            color: rgba("#BB86FC")
+            
             
 
 
