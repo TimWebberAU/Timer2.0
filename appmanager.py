@@ -7,14 +7,17 @@
 #
 
 
+from kivymd.app import MDApp
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.clock import Clock
 from timer import TimerDisplay, TimerDisplayInterface
+from kivy.core.window import Window
 
 
-class TimerLayout(Widget):
+class TimerLayout(MDBoxLayout):
     """Management of the app and layout."""
 
     # Used only to pass-in engine class objects during instantiation.
@@ -67,17 +70,23 @@ class TimerLayout(Widget):
     
 
     def timer_format(self):
-        return f"Hr: {str(self.timer_hours)}  Min: {str(self.timer_minutes)}  Sec: {str(self.timer_seconds)}"
+        return f"{str(self.timer_hours)} : {str(self.timer_minutes)} : {str(self.timer_seconds)}"
 
 
 
-class TimerApp(App):
+class TimerApp(MDApp):
     """Main entry point of Kivy App."""
 
     def build(self):
 
         # Instantiate engine objects
         # self.timer_display_object = TimerDisplay()
+
+        Window.minimum_width, Window.minimum_height = 200, 420
+
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Gray"
+        self.theme_cls.primary_hue = "800"
 
         return TimerLayout(TimerDisplay())  # Pass-in engine class as well
 
