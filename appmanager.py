@@ -15,6 +15,7 @@ from kivy.properties import ObjectProperty
 from kivy.clock import Clock
 from timer import TimerDisplay, TimerDisplayInterface
 from kivy.core.window import Window
+from kivy.core.audio import SoundLoader
 
 
 class TimerLayout(MDBoxLayout):
@@ -41,13 +42,20 @@ class TimerLayout(MDBoxLayout):
         self.timer_minutes = int(self.minutes.value)    # Create trackable MIN variable
         self.timer_hours = int(self.hours.value)        # Create trackable HR variable
 
+        # Reset text on buttons
+        self.ids.begin.text = "Reset"
+        self.ids.pause.text = "Pause"
+
+        # Enable pause and stop buttons
+        self.ids.pause.disabled = False
+        self.ids.stop.disabled = False
+
         # Ensure timer only starts if a value exists
         if self.timer_seconds > 0 or self.timer_minutes > 0 or self.timer_hours > 0:
             Clock.schedule_interval(self.timer_display, 1)  # Kivy scheduler, 1 sec interval
 
 
     def timer_display(self, dt_time_elapsed):
-                        
         self.ids.timer.text = self.timer_format()       # Update GUI timer
 
         if self.timer_seconds == 0:
@@ -65,13 +73,49 @@ class TimerLayout(MDBoxLayout):
 
         if self.timer_seconds <= 0 and self.timer_minutes <= 0 and self.timer_hours <= 0:
             Clock.unschedule(self.timer_display)
+            self.play_alarm()
+
+            self.ids.begin.text = "Begin"
+
+            self.ids.pause.disabled = True
+            self.ids.stop.disabled = True
         
         self.timer_seconds -= 1
     
 
     def timer_format(self):
         return f"{str(self.timer_hours)} : {str(self.timer_minutes)} : {str(self.timer_seconds)}"
+    
 
+    def pause_btn(self):
+        if self.timer_seconds > 0 or self.timer_minutes > 0 or self.timer_hours > 0:
+            if self.ids.pause.text == "Pause":
+                Clock.unschedule(self.timer_display)
+                self.ids.pause.text = "Play"
+            else:
+                Clock.schedule_interval(self.timer_display, 1)
+                self.ids.pause.text = "Pause"
+    
+
+    def stop_btn(self):
+        if self.timer_seconds > 0 or self.timer_minutes > 0 or self.timer_hours > 0:
+            Clock.unschedule(self.timer_display)
+            self.ids.timer.text = "0 : 0 : 0"
+
+            self.timer_hours = 0
+            self.timer_minutes = 0
+            self.timer_seconds = 0
+
+            self.ids.begin.text = "Begin"
+            self.ids.pause.text = "Pause"
+
+            self.ids.pause.disabled = True
+            self.ids.stop.disabled = True
+
+
+    def play_alarm(self):
+        alarm = SoundLoader.load("Sounds/pipe_sound.wav")
+        alarm.play()
 
 
 class TimerApp(MDApp):

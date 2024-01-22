@@ -70,37 +70,40 @@
                 orientation: "vertical"
                 height: '140dp'
                 on_value: slider_seconds_label.text = f"{int(self.value)} Secs"
-        
 
             MDRaisedButton:
+                id: begin
                 text: "Begin"
                 size_hint: root.width, 0.3
                 font_name: 'Fonts/Shrikhand-Regular.ttf'
                 font_size: 16
                 halign: "center"
-                # size_hint_y: None
                 on_press: root.begin_btn()
             MDRaisedButton:
+                id: pause
                 text: "Pause"
+                disabled: True
                 size_hint: root.width, 0.3
                 font_name: 'Fonts/Shrikhand-Regular.ttf'
                 font_size: 16
                 halign: "center"
-                # size_hint_y: None
+                on_press: root.pause_btn()
             MDRaisedButton:
+                id: stop
                 text: "Stop"
+                disabled: True
                 size_hint: root.width, 0.3
                 font_name: 'Fonts/Shrikhand-Regular.ttf'
                 font_size: 16
                 halign: "center"
-                # size_hint_y: None
+                on_press: root.stop_btn()
         
         MDLabel:
             id: timer
             text: "0 : 0 : 0"
             halign: "center"
             font_name: 'Fonts/Shrikhand-Regular.ttf'
-            font_size: 30
+            font_size: 40
             size_hint_y: None
             theme_text_color: "Custom"
             text_color: "violet"
