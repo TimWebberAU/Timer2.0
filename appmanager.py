@@ -82,11 +82,11 @@ class TimerApp(MDApp):
         # Instantiate engine objects
         # self.timer_display_object = TimerDisplay()
 
-        Window.minimum_width, Window.minimum_height = 200, 420
+        Window.minimum_width, Window.minimum_height = 250, 440
 
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Gray"
-        self.theme_cls.primary_hue = "800"
+        self.theme_cls.primary_hue = "400"
 
         return TimerLayout(TimerDisplay())  # Pass-in engine class as well
 

@@ -7,13 +7,14 @@
     MDGridLayout:
         cols: 1
         size: root.width, root.height
-        spacing: 10
+        size_hint_y: None
 
         MDLabel:
             text: "NEEDY  TIMER"
             halign: "center"
             font_name: 'Fonts/Shrikhand-Regular.ttf'
             font_size: 30
+            size_hint_y: None
             theme_text_color: "Custom"
             text_color: "violet"
 
@@ -22,19 +23,25 @@
 
             MDLabel:
                 id: slider_hours_label
-                text: "0 Hours"
+                text: "0 Hrs"
                 halign: "center"
                 theme_text_color: "Primary"
+                size_hint_y: None
+                height: dp(30)
             MDLabel:
                 id: slider_minutes_label
-                text: "0 Minutes"
+                text: "0 Mins"
                 halign: "center"
                 theme_text_color: "Primary"
+                size_hint_y: None
+                height: dp(30)
             MDLabel:
                 id: slider_seconds_label
-                text: "0 Seconds"
+                text: "0 Secs"
                 halign: "center"
                 theme_text_color: "Primary"
+                size_hint_y: None
+                height: dp(30)
 
             MDSlider:
                 id: hours
@@ -43,9 +50,8 @@
                 value: 0
                 step: 1
                 orientation: "vertical"
-                size_hint_y: None
                 height: '140dp'
-                on_value: slider_hours_label.text = f"{int(self.value)} Hours"
+                on_value: slider_hours_label.text = f"{int(self.value)} Hrs"
             MDSlider:
                 id: minutes
                 min: 0
@@ -53,9 +59,8 @@
                 value: 0
                 step: 1
                 orientation: "vertical"
-                size_hint_y: None
                 height: '140dp'
-                on_value: slider_minutes_label.text = f"{int(self.value)} Minutes"
+                on_value: slider_minutes_label.text = f"{int(self.value)} Mins"
             MDSlider:
                 id: seconds
                 min: 0
@@ -63,24 +68,40 @@
                 value: 0
                 step: 1
                 orientation: "vertical"
-                size_hint_y: None
                 height: '140dp'
-                on_value: slider_seconds_label.text = f"{int(self.value)} Seconds"
+                on_value: slider_seconds_label.text = f"{int(self.value)} Secs"
+        
 
-        MDRaisedButton:
-            text: "Begin / Reset"
-            size_hint: root.width, 0.3
-            font_name: 'Fonts/Shrikhand-Regular.ttf'
-            font_size: 20
-            on_press: root.begin_btn()
+            MDRaisedButton:
+                text: "Begin"
+                size_hint: root.width, 0.3
+                font_name: 'Fonts/Shrikhand-Regular.ttf'
+                font_size: 16
+                halign: "center"
+                # size_hint_y: None
+                on_press: root.begin_btn()
+            MDRaisedButton:
+                text: "Pause"
+                size_hint: root.width, 0.3
+                font_name: 'Fonts/Shrikhand-Regular.ttf'
+                font_size: 16
+                halign: "center"
+                # size_hint_y: None
+            MDRaisedButton:
+                text: "Stop"
+                size_hint: root.width, 0.3
+                font_name: 'Fonts/Shrikhand-Regular.ttf'
+                font_size: 16
+                halign: "center"
+                # size_hint_y: None
         
         MDLabel:
             id: timer
-            # text: "Hr: 0  Min: 0  Sec: 0"
             text: "0 : 0 : 0"
             halign: "center"
             font_name: 'Fonts/Shrikhand-Regular.ttf'
             font_size: 30
+            size_hint_y: None
             theme_text_color: "Custom"
             text_color: "violet"
             
