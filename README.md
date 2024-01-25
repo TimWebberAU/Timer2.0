@@ -4,8 +4,21 @@ This marks the beginning for me in building a coding portfolio for recruiters.
 
 The first (official) project, a timer, which I can use for timeboxing and being productive. 
 It's version 2.0 because I built a very basic command-line version with limited functionality.
-This will be a GUI version with more advanced features. 
+This is a GUI version with more advanced features. 
 
+SCREENSHOTS of Final Product:
+
+![Timer](image.png)
+![Timer running](image-1.png)
+
+LESSONS LEARNT:
+- I had a plan, going in, to build a loosely coupled program. This is what I was taught at Uni as the best practise. As you can see from my original UML below, I was going to achieve this loose coupling by separating all potential volatilities into different classes/components. However, Kivy and KivyMD, the modules used for creating a GUI, are naturally highly coupled. Because all of the widgets used to display anything on the screen are in the .kv file which the main app completely depends on. I was going to attempt to separate some timer logic into a separate class but then realised for a simple app like this it would be creating unnecessary complexity. Further, I would potentially have to create more dependencies with the new class objects regularly updating the GUI.
+- I feel as though I have learnt or relearnt a lot during this project!
+
+
+
+
+ORIGINAL PLANNING PHASE:
 
 OBJECTIVES:
 - Core use cases
@@ -36,10 +49,14 @@ VOLATILITIES:
 - The GUI method used
 - The way the timer is displayed
 
-COMPONENT UML
+Final UML
 
-![image](https://github.com/TimWebberAU/Timer2.0/assets/93519534/b2419759-bbf7-4eeb-8d54-6dc1bd1c0efb)
+![UML Class Diagram](timerUMLfinal.png)
 
 
-NOTES
+Original UML - Please see above for lessons learnt.
+
+![UML Class Diagram](timerUML.png)
+
+NOTES on original UML
 - Reconsider the relationships in the UML - if the GUI "has" a background, then doesn't that mean the GUI is "composed of" a background object?
