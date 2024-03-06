@@ -1,6 +1,5 @@
 # Requirements file containing dependencies
 # Use pip3 install -r requirements.txt
 
-python==3.10.7
 kivy==2.3.0
 kivymd==1.1.1
