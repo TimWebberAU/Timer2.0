@@ -12,7 +12,7 @@ This is a GUI version with more advanced features.
 
 ---
 
-- Python (version 3.10.7)
+- Built and tested on Python version 3.10.7
 
 ## Dependencies 🛠️
 
